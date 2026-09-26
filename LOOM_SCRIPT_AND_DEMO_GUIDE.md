@@ -165,12 +165,6 @@ python manage.py runserver
 The API will be available at:
 `http://127.0.0.1:8000/api/v1/route/fuel-plan/`
 
-### Automated End-to-End Test Script
-To see live API output for all 4 scenarios in your terminal:
-```powershell
-.\venv\Scripts\python test_client.py
-```
-
 ### Running the Test Suite
 ```powershell
 .\venv\Scripts\pytest
