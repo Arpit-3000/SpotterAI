@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: spotter-fuel-optimizer
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "*"
+      - key: ROUTING_PROVIDER
+        value: osrm
+      - key: OSRM_BASE_URL
+        value: https://router.project-osrm.org
+      - key: CORRIDOR_RADIUS_MILES
+        value: "30.0"
+      - key: VEHICLE_MAX_RANGE_MILES
+        value: "500.0"
+      - key: VEHICLE_MPG
+        value: "10.0"

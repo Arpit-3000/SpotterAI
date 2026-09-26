@@ -1,0 +1,203 @@
+{
+  "info": {
+    "_postman_id": "f5e47890-4491-42e1-8843-984bb2524df9",
+    "name": "Spotter Fuel Optimizer API",
+    "description": "API collection for testing Spotter Fuel Route Optimizer endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. New York to Chicago (Single Stop)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"Chicago, IL\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/route/fuel-plan/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "route",
+            "fuel-plan",
+            ""
+          ]
+        },
+        "description": "Calculates route from New York, NY to Chicago, IL (~790 miles), selecting cost-effective fuel stops within the 500-mile vehicle range."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Los Angeles to Las Vegas (Under 500 mi - 0 Stops)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"Los Angeles, CA\",\n  \"finish\": \"Las Vegas, NV\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/route/fuel-plan/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "route",
+            "fuel-plan",
+            ""
+          ]
+        },
+        "description": "Route under 500 miles (~270 miles). Demonstrates that zero fuel stops are required since vehicle starts with a full tank."
+      },
+      "response": []
+    },
+    {
+      "name": "3. New York to Los Angeles (Long-Distance Multi-Stop)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"Los Angeles, CA\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/route/fuel-plan/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "route",
+            "fuel-plan",
+            ""
+          ]
+        },
+        "description": "Cross-country route (~2,770 miles) demonstrating greedy multi-stop fuel planning with each leg <= 500 miles."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Structured City/State Input",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": {\n    \"city\": \"Dallas\",\n    \"state\": \"TX\"\n  },\n  \"finish\": {\n    \"city\": \"Atlanta\",\n    \"state\": \"GA\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/route/fuel-plan/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "route",
+            "fuel-plan",
+            ""
+          ]
+        },
+        "description": "Demonstrates structured dictionary input format for locations."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Error - Location Outside USA",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"Paris, France\",\n  \"finish\": \"Chicago, IL\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/route/fuel-plan/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "route",
+            "fuel-plan",
+            ""
+          ]
+        },
+        "description": "Demonstrates HTTP 400 rejection for locations outside the USA."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Error - Missing Required Field",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"finish\": \"Chicago, IL\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/route/fuel-plan/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "route",
+            "fuel-plan",
+            ""
+          ]
+        },
+        "description": "Demonstrates HTTP 400 validation error when start location is omitted."
+      },
+      "response": []
+    }
+  ]
+}
