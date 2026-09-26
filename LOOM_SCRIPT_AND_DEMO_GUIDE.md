@@ -137,7 +137,7 @@ Use this complete script to record your Loom presentation. Keep this file open o
   > *(Point cursor at the terminal)*
   > *All 34 unit and integration tests pass in under one second. They test math formulas, boundary conditions, edge cases, CSV idempotency, and API contracts with fully mocked external services.*
   >
-  > *I have also committed all setup scripts, environment templates, and the Postman collection to the repository. The application is completely containerized with Docker and ready for 1-click deployment on Render.*
+  > *I have also committed all setup scripts, environment templates, and the Postman collection to the repository. The application is production-ready and configured for 1-click native deployment on Render.*
   >
   > *Thank you for reviewing my assessment, and I look forward to discussing the implementation further!"*
 
