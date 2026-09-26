@@ -263,8 +263,18 @@ All 34 unit, integration, and service tests pass completely offline using mocked
 
 ## 8. Postman Collection
 
-Import `postman/Spotter-Fuel-Optimizer.postman_collection.json` into Postman.
+### 🔗 Postman Collection
+
+You can access and test the API directly using the Postman collection:
+
+**[Open Postman Collection](https://www.postman.com/arpitcollege1205/workspace/my-workspace/collection/47481225-7a381ec0-f8d1-4d6f-81ef-8efa4433fb93?action=share&creator=47481225)**
+
+The collection is also available in the repository at:
+
+`postman/Spotter-Fuel-Optimizer.postman_collection.json`
+
 Preconfigured requests include:
+
 1. `New York to Chicago (Single Stop)`
 2. `Los Angeles to Las Vegas (Under 500 mi - 0 Stops)`
 3. `New York to Los Angeles (Long-Distance Multi-Stop)`
