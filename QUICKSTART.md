@@ -79,4 +79,12 @@ curl -X POST http://127.0.0.1:8000/api/v1/route/fuel-plan/ \
   -d '{"start": "New York, NY", "finish": "Chicago, IL"}'
 ```
 
-Or import `postman/Spotter-Fuel-Optimizer.postman_collection.json` into Postman to test all routes and validation errors with one click.
+Or test the live cloud deployment directly on Render:
+
+```bash
+curl -X POST https://spotterai-so1k.onrender.com/api/v1/route/fuel-plan/ \
+  -H "Content-Type: application/json" \
+  -d '{"start": "New York, NY", "finish": "Chicago, IL"}'
+```
+
+Or import `postman/Spotter-Fuel-Optimizer.postman_collection.json` into Postman (pre-configured with `base_url = https://spotterai-so1k.onrender.com`) to test all routes with one click.
