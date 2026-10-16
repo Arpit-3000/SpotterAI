@@ -222,7 +222,7 @@ Supports standard string inputs or structured city/state dictionaries:
 ```json
 {
   "error": {
-    "code": "NO_FEASIBLE_FUEL_PLAN",
+    "code": "NO_FEASIBLE_FUEL_PLAN Found",
     "message": "No feasible fuel-stop plan exists for this route within the 500 mile vehicle range."
   }
 }
@@ -273,7 +273,7 @@ The collection is also available in the repository at:
 
 `postman/Spotter-Fuel-Optimizer.postman_collection.json`
 
-Preconfigured requests include:
+Preconfigured requests include: 
 
 1. `New York to Chicago (Single Stop)`
 2. `Los Angeles to Las Vegas (Under 500 mi - 0 Stops)`
